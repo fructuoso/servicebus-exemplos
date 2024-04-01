@@ -10,10 +10,9 @@ Este repositório foi criado para demonstrar exemplos práticos de como utilizar
 
 ## Conteúdo
 
-O repositório inclui os seguintes recursos:
+O repositório inclui os seguintes exemplos:
 
 - Envio e Leitura de mensagens em filas;
-- (Adicione outros recursos conforme necessário)
 
 ## Pré-requisitos
 

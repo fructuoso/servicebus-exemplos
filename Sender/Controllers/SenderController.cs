@@ -16,11 +16,11 @@ public class SenderController : ControllerBase
         _serviceBusSenderProvider = serviceBusSenderProvider;
     }
 
-    [HttpPost("fila-basica")]
+    [HttpPost("{entidade}")]
     [ProducesResponseType(StatusCodes.Status202Accepted)]
-    public async Task<IActionResult> FilaBasica([FromBody] string mensagem)
+    public async Task<IActionResult> Enviar(string entidade, [FromBody] string mensagem)
     {
-        var serviceBusSender = _serviceBusSenderProvider.Provide("fila-basica");
+        var serviceBusSender = _serviceBusSenderProvider.Provide(entidade);
         await serviceBusSender.SendMessageAsync(new ServiceBusMessage(mensagem));
 
         return Accepted();

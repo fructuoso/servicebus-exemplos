@@ -3,7 +3,8 @@ using Azure.Messaging.ServiceBus;
 using Receiver;
 
 var builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddHostedService<Worker>();
+builder.Services.AddHostedService<FilaBasicaWorker>();
+builder.Services.AddHostedService<FilaSemConfirmacaoWorker>();
 
 builder.Services.AddSingleton<ServiceBusClient>(_ =>
 {
