@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Azure.Identity;
 using Azure.Messaging.ServiceBus;
 using Receiver;
@@ -5,6 +6,16 @@ using Receiver;
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<FilaBasicaWorker>();
 builder.Services.AddHostedService<FilaSemConfirmacaoWorker>();
+
+builder.Logging.AddJsonConsole(options =>
+{
+    options.IncludeScopes = true;
+    options.TimestampFormat = "yyyy-MM-dd HH:mm:ss.fff";
+    options.JsonWriterOptions = new JsonWriterOptions
+    {
+        Indented = true
+    };
+});
 
 builder.Services.AddSingleton<ServiceBusClient>(_ =>
 {
