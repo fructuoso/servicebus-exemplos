@@ -6,6 +6,7 @@ using Receiver;
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<FilaBasicaWorker>();
 builder.Services.AddHostedService<FilaSemConfirmacaoWorker>();
+builder.Services.AddHostedService<FilaTimeoutWorker>();
 
 builder.Logging.AddJsonConsole(options =>
 {
