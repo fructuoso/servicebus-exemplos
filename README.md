@@ -34,6 +34,20 @@ Projeto WebAPI responsável pelo envio das mensagens. Cada ação do controller 
 
 Projeto Worker Service responsável pelo processamento das mensagens. Cada worker é responsável por processar um exemplo.
 
+## Filas, Tópicos e Subscrições
+
+Para executar plenamente todos os exemplos presentes nesse repositório, se faz necessário criar as seguintes entidades no Service Bus:
+
+### Filas
+
+| Name | Max Size (GB) | Max Delivery Count | Default Message TTL | Lock Duration | Auto Delete On Idle | Requires Duplicate Detection | Duplicate Detection History Time Window | Dead Lettering On Message Expiration | Enable Partitioning | Requires Session |
+|-----------------------|---------------|--------------------|---------------------|---------------|----------------------|----------------------------------|----------------------------------------|--------------------------------------|---------------------|------------------|
+| fila-ate-uma-vez | 1 | 10 | 10m | 1m | No | No | | No | No | No |
+| fila-basica | 1 | 10 | 10m | 1m | No | No | | No | No | No |
+| fila-sem-confirmacao | 1 | 10 | 10m | 5s | No | No | | No | No | No |
+| fila-sem-duplicidade | 1 | 10 | 10m | 1m | No | Yes | 10m | No | No | No |
+| fila-timeout | 1 | 1 | 10m | 5s | No | No | | No | No | No |
+
 ## Como Usar (VS Code)
 
 1. Clone este repositório em sua máquina local.
