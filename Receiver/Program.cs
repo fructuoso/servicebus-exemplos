@@ -7,6 +7,7 @@ var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<FilaBasicaWorker>();
 builder.Services.AddHostedService<FilaSemConfirmacaoWorker>();
 builder.Services.AddHostedService<FilaTimeoutWorker>();
+builder.Services.AddHostedService<FilaAteUmaVezWorker>();
 
 builder.Logging.AddJsonConsole(options =>
 {
