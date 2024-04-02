@@ -9,6 +9,7 @@ builder.Services.AddHostedService<FilaSemConfirmacaoWorker>();
 builder.Services.AddHostedService<FilaTimeoutWorker>();
 builder.Services.AddHostedService<FilaAteUmaVezWorker>();
 builder.Services.AddHostedService<FilaParticionada>();
+builder.Services.AddHostedService<FilaSessao>();
 
 // builder.Logging.AddJsonConsole(options =>
 // {

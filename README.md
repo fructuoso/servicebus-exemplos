@@ -59,6 +59,7 @@ Para executar plenamente todos os exemplos presentes nesse repositório, se faz 
 | fila-sem-duplicidade | 1 | 10 | 10m | 1m | No | Yes | 10m | No | No | No |
 | fila-timeout | 1 | 1 | 10m | 5s | No | No | | No | No | No |
 | fila-particionada | 1 | 1 | 10m | 5s | No | No | | No | Yes | No |
+| fila-sessao | 1 | 1 | 10m | 5s | No | No | | No | No | Yes |
 
 ## Como Usar (VS Code)
 

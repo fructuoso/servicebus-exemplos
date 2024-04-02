@@ -67,6 +67,22 @@ public class SenderController : ControllerBase
         return Accepted();
     }
 
+    [HttpPost("sessao/{entidade}")]
+    [ProducesResponseType(StatusCodes.Status202Accepted)]
+    public async Task<IActionResult> EnviarComSessao(string entidade, [FromBody] string mensagem)
+    {
+        var serviceBusSender = _serviceBusSenderProvider.Provide(entidade);
+
+        for (int m = 0; m < 10; m++)
+        {
+            await serviceBusSender.SendMessageAsync(new ServiceBusMessage($"{mensagem} - {m}") { SessionId = "sessao-a" });
+            await serviceBusSender.SendMessageAsync(new ServiceBusMessage($"{mensagem} - {m}") { SessionId = "sessao-b" });
+            await serviceBusSender.SendMessageAsync(new ServiceBusMessage($"{mensagem} - {m}") { SessionId = "sessao-c" });
+        }
+
+        return Accepted();
+    }
+    
     private async Task SendMessagesInBatch(ServiceBusSender serviceBusSender, List<ServiceBusMessage> messages)
     {
         var messageBatch = await serviceBusSender.CreateMessageBatchAsync();
