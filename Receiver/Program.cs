@@ -8,16 +8,17 @@ builder.Services.AddHostedService<FilaBasicaWorker>();
 builder.Services.AddHostedService<FilaSemConfirmacaoWorker>();
 builder.Services.AddHostedService<FilaTimeoutWorker>();
 builder.Services.AddHostedService<FilaAteUmaVezWorker>();
+builder.Services.AddHostedService<FilaParticionada>();
 
-builder.Logging.AddJsonConsole(options =>
-{
-    options.IncludeScopes = true;
-    options.TimestampFormat = "yyyy-MM-dd HH:mm:ss.fff";
-    options.JsonWriterOptions = new JsonWriterOptions
-    {
-        Indented = true
-    };
-});
+// builder.Logging.AddJsonConsole(options =>
+// {
+//     options.IncludeScopes = true;
+//     options.TimestampFormat = "yyyy-MM-dd HH:mm:ss.fff";
+//     options.JsonWriterOptions = new JsonWriterOptions
+//     {
+//         Indented = true
+//     };
+// });
 
 builder.Services.AddSingleton<ServiceBusClient>(_ =>
 {

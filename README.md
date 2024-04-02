@@ -1,38 +1,49 @@
-# Exemplos de Uso do Azure Service Bus com .NET
+Entendido! Vou ajustar esses pontos para garantir que cada item seja abordado de forma individual e corrigir a classificação dos tópicos. Vamos lá:
 
-Bem-vindo ao repositório **Service Bus Exemplos**, desenvolvido especificamente para uma LIVE no canal D.E.P.L.O.Y. Este repositório serve como uma demonstração prática do uso do Azure Service Bus com .NET 8.
+---
 
-## Descrição
+# Guia Prático do Azure Service Bus com .NET para Iniciantes
 
-O Azure Service Bus é um serviço de mensagens totalmente gerenciado fornecido pela Microsoft Azure. Ele oferece uma plataforma robusta e escalável para o envio, recebimento e processamento de mensagens em nuvem.
+Bem-vindo(a) ao **Guia Prático do Azure Service Bus**, criado especialmente para uma LIVE no canal D.E.P.L.O.Y. Este material é seu ponto de partida para explorar como o Azure Service Bus pode ser utilizado em projetos .NET, com foco em quem está começando ou deseja expandir seus conhecimentos.
 
-Este repositório foi criado para demonstrar exemplos práticos de como utilizar o Azure Service Bus em aplicativos desenvolvidos com o framework .NET. Aqui você encontrará exemplos de código, guias de início rápido e outros recursos úteis para começar a trabalhar com o Azure Service Bus em seus projetos .NET.
+## O que é o Azure Service Bus?
 
-## Conteúdo
+O Azure Service Bus é um sistema de mensagens na nuvem da Microsoft que facilita a comunicação entre aplicativos e serviços de forma escalável e segura. Pense nele como uma ponte que permite que diferentes partes do seu software conversem entre si, trocando mensagens de maneira eficaz.
 
-O repositório inclui os seguintes exemplos:
+## Por que este guia é para você?
 
-- Envio e Leitura de mensagens em filas;
+Aqui você encontra exemplos práticos para implementar várias funcionalidades do Azure Service Bus em aplicativos .NET. Desde conceitos básicos até dicas avançadas, tudo explicado de maneira simples.
 
-## Pré-requisitos
+## Conteúdo do Guia
 
-Para executar os exemplos neste repositório, você precisará ter:
+### Exemplos de Código
 
-- Uma assinatura do Microsoft Azure com acesso ao Azure Service Bus.
-- O SDK do Azure para .NET instalado em seu ambiente de desenvolvimento.
-- Conhecimento básico de desenvolvimento .NET (C#) e conceitos de mensageria.
+- **Envio de Mensagens**: Como enviar dados de um ponto a outro do seu sistema.
+- **Sem Confirmação de Execução**: O que acontece quando uma ação é realizada sem que haja confirmação.
+- **Manuseio de TIMEOUT**: Como lidar com situações onde a mensagem demora mais do que o esperado para ser processada.
+- **Garantias de Entrega**: Diferentes formas de assegurar que suas mensagens cheguem ao destino.
+  - Execução no Máximo Uma Vez
+  - Pelo Menos Uma Vez
+  - Exatamente Uma Vez (Evitando Duplicidades)
+- **Particionamento**: Aumente a eficiência do seu sistema distribuindo as mensagens por várias filas ou tópicos.
+- **Envio em Batch**: Aprenda a enviar múltiplas mensagens de uma só vez para melhorar a performance.
 
-## Estrutura do Projeto
+## Primeiros Passos
 
-A solução está estruturada em dois projetos:
+### Pré-requisitos
 
-### Sender
+Para seguir este guia, você precisa:
 
-Projeto WebAPI responsável pelo envio das mensagens. Cada ação do controller é responsável por executar um exemplo.
+- Ter uma conta no Microsoft Azure com acesso ao Azure Service Bus.
+- O SDK do Azure para .NET configurado no seu ambiente de desenvolvimento.
+- Conhecimento básico em programação .NET (C#) e mensageria.
 
-### Receiver
+### Estrutura do Projeto
 
-Projeto Worker Service responsável pelo processamento das mensagens. Cada worker é responsável por processar um exemplo.
+Nossa solução se divide em:
+
+- **Sender**: Uma WebAPI para enviar mensagens.
+- **Receiver**: Um Worker Service para receber e processar as mensagens.
 
 ## Filas, Tópicos e Subscrições
 
@@ -47,6 +58,7 @@ Para executar plenamente todos os exemplos presentes nesse repositório, se faz 
 | fila-sem-confirmacao | 1 | 10 | 10m | 5s | No | No | | No | No | No |
 | fila-sem-duplicidade | 1 | 10 | 10m | 1m | No | Yes | 10m | No | No | No |
 | fila-timeout | 1 | 1 | 10m | 5s | No | No | | No | No | No |
+| fila-particionada | 1 | 1 | 10m | 5s | No | No | | No | Yes | No |
 
 ## Como Usar (VS Code)
 
@@ -72,7 +84,6 @@ dotnet run --project Sender
 dotnet run --project Receiver
 ```
 
-## Contribuições
+## Contribuindo
 
-Contribuições são bem-vindas! Se você tiver ideias para novos exemplos, melhorias nos exemplos existentes ou correções de problemas, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
+Quer ajudar a enriquecer este guia? Suas ideias para novos exemplos, melhorias ou correções são muito bem-vindas! Abra uma issue ou envie um pull request para contribuir.
